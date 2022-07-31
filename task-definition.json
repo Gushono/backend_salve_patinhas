@@ -2,7 +2,7 @@
   "family": "store-demo-containers",
   "containerDefinitions": [
     {
-      "name": "",
+      "name": "salve_patinhas",
       "image": "961040309672.dkr.ecr.us-east-1.amazonaws.com/salve_patinhas:latest",
       "cpu": 10,
       "memory": 300,
