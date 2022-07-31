@@ -56,22 +56,7 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:961040309672:task-definition/task-definition-salve-patinhas:1",
   "family": "task-definition-salve-patinhas",
-  "requiresAttributes": [
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "ecs.capability.execution-role-ecr-pull"
-    }
-  ],
   "pidMode": null,
   "requiresCompatibilities": [
     "EC2"
@@ -79,8 +64,6 @@
   "networkMode": null,
   "runtimePlatform": null,
   "cpu": "2048",
-  "revision": 1,
-  "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
   "volumes": []
