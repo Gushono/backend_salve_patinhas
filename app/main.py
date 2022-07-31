@@ -21,3 +21,8 @@ async def root_v2():
 @app.get("/v3")
 async def root_v3():
     return {"message": "OLá ola v3"}
+
+
+@app.get("/v4")
+async def root_v4():
+    return {"message": "OLá ola v4"}
