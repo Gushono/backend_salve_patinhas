@@ -36,7 +36,7 @@ env:
   # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: salve-patinhas        # set this to your Amazon ECR repository name
   ECS_SERVICE: ecs_service_salve_patinhas                 # set this to your Amazon ECS service name
-  ECS_CLUSTER: ecs_cluster_salve_patinhas                # set this to your Amazon ECS cluster name
+  ECS_CLUSTER: salve-patinhas                # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: task-definition.json # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: salve_patinhas           # set this to the name of the container in the
