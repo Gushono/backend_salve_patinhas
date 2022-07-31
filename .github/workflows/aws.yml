@@ -75,9 +75,10 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        docker build . -t salve_patinhas:latest
-        docker tag salve_patinhas:latest ${{ env.ECR_REGISTRY }}
-        docker push ${{ env.ECR_REGISTRY }}/salve_patinhas:latest
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
         echo "Pushed image to Amazon ECR, with tag: ${{ env.IMAGE_TAG }}, and repository: ${{ env.ECR_REGISTRY }}/salve_patinhas"
 
     - name: Fill in the new image ID in the Amazon ECS task definition
