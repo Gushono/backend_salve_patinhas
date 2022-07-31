@@ -63,7 +63,7 @@
   ],
   "networkMode": null,
   "runtimePlatform": null,
-  "cpu": "2048",
+  "cpu": "1024",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
   "volumes": []
