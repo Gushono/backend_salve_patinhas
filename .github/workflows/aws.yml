@@ -76,7 +76,7 @@ jobs:
         # push it to ECR so that it can
         # be deployed to ECS.
         docker build . -t salve_patinhas:latest
-        docker tag salve_patinhas ${{ env.ECR_REGISTRY }}
+        docker tag salve_patinhas:latest ${{ env.ECR_REGISTRY }}
         docker push ${{ env.ECR_REGISTRY }}/salve_patinhas:latest
         echo "Pushed image to Amazon ECR, with tag: ${{ env.IMAGE_TAG }}, and repository: ${{ env.ECR_REGISTRY }}/salve_patinhas"
 
