@@ -32,7 +32,8 @@ on:
       - "main"
 
 env:
-  AWS_REGION: us-east-1                   # set this to your preferred AWS region, e.g. us-west-1
+  AWS_REGION: us-east-1
+  # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: 961040309672.dkr.ecr.us-east-1.amazonaws.com/salve-patinhas           # set this to your Amazon ECR repository name
   ECS_SERVICE: ecs_service_salve_patinhas                 # set this to your Amazon ECS service name
   ECS_CLUSTER: ecs_cluster_salve_patinhas                # set this to your Amazon ECS cluster name
@@ -74,9 +75,10 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+        docker build -t salve_patinhas
+        docker tag salve_patinhas ${{ env.ECR_REGISTRY }}/salve_patinhas:latest
+        docker push ${{ env.ECR_REGISTRY }}/salve_patinhas:latest
+        echo "Pushed image to Amazon ECR, with tag: ${{ env.IMAGE_TAG }}, and repository: ${{ env.ECR_REGISTRY }}/salve_patinhas"
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
