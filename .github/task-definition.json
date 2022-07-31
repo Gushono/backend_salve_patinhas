@@ -1,0 +1,18 @@
+{
+  "family": "store-demo-containers",
+  "containerDefinitions": [
+    {
+      "name": "",
+      "image": "961040309672.dkr.ecr.us-east-1.amazonaws.com/salve_patinhas:latest",
+      "cpu": 10,
+      "memory": 300,
+      "portMappings": [
+          {
+              "containerPort": 8081,
+              "hostPort": 8081
+          }
+      ],
+      "essential": true
+    }
+  ]
+}
