@@ -12,7 +12,7 @@ async def root():
 async def root_v1():
     a = 1
     print(a)
-    return {"message": "OLá ola v33333333 no v1"}
+    return {"message": "OLá esse é o v1 que foi editado as 12:12"}
 
 
 @app.get("/v2")
