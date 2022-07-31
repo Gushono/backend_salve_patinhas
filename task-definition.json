@@ -1,18 +1,87 @@
 {
-  "family": "store-demo-containers",
+  "ipcMode": null,
+  "executionRoleArn": "arn:aws:iam::961040309672:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
-      "name": "salve_patinhas",
-      "image": "961040309672.dkr.ecr.us-east-1.amazonaws.com/salve_patinhas:latest",
-      "cpu": 10,
-      "memory": 300,
+      "dnsSearchDomains": null,
+      "environmentFiles": null,
+      "logConfiguration": null,
+      "entryPoint": null,
       "portMappings": [
-          {
-              "containerPort": 8081,
-              "hostPort": 8081
-          }
+        {
+          "hostPort": 8081,
+          "protocol": "tcp",
+          "containerPort": 8081
+        }
       ],
-      "essential": true
+      "command": null,
+      "linuxParameters": null,
+      "cpu": 0,
+      "environment": [],
+      "resourceRequirements": null,
+      "ulimits": null,
+      "dnsServers": null,
+      "mountPoints": [],
+      "workingDirectory": null,
+      "secrets": null,
+      "dockerSecurityOptions": null,
+      "memory": null,
+      "memoryReservation": null,
+      "volumesFrom": [],
+      "stopTimeout": null,
+      "image": "961040309672.dkr.ecr.us-east-1.amazonaws.com/salve-patinhas",
+      "startTimeout": null,
+      "firelensConfiguration": null,
+      "dependsOn": null,
+      "disableNetworking": null,
+      "interactive": null,
+      "healthCheck": null,
+      "essential": true,
+      "links": null,
+      "hostname": null,
+      "extraHosts": null,
+      "pseudoTerminal": null,
+      "user": null,
+      "readonlyRootFilesystem": null,
+      "dockerLabels": null,
+      "systemControls": null,
+      "privileged": null,
+      "name": "salve-patinhas-container"
     }
-  ]
+  ],
+  "placementConstraints": [],
+  "memory": "128",
+  "taskRoleArn": null,
+  "compatibilities": [
+    "EXTERNAL",
+    "EC2"
+  ],
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:961040309672:task-definition/task-definition-salve-patinhas:1",
+  "family": "task-definition-salve-patinhas",
+  "requiresAttributes": [
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.execution-role-ecr-pull"
+    }
+  ],
+  "pidMode": null,
+  "requiresCompatibilities": [
+    "EC2"
+  ],
+  "networkMode": null,
+  "runtimePlatform": null,
+  "cpu": "1024",
+  "revision": 1,
+  "status": "ACTIVE",
+  "inferenceAccelerators": null,
+  "proxyConfiguration": null,
+  "volumes": []
 }
