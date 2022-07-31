@@ -10,6 +10,8 @@ async def root():
 
 @app.get("/v1")
 async def root_v1():
+    a = 1
+    print(a)
     return {"message": "OLá ola v33333333 no v1"}
 
 
