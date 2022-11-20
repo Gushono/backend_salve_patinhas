@@ -12,6 +12,8 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # 
 COPY ./app.py .
+COPY ./src /code/src
+COPY ./server.py .
 
 #
 EXPOSE 8081
