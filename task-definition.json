@@ -1,10 +1,13 @@
 {
   "ipcMode": null,
-  "executionRoleArn": "arn:aws:iam::961040309672:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::961040309672:role/ecs-task-role-secret",
   "containerDefinitions": [
     {
       "dnsSearchDomains": null,
-      "environmentFiles": null,
+      "environmentFiles": {
+        "value": "arn:aws:secretsmanager:us-east-1:961040309672:secret:env_salve_patinhas-UdoFZQ",
+        "type": "secretsManager"
+      },
       "logConfiguration": null,
       "entryPoint": null,
       "portMappings": [
