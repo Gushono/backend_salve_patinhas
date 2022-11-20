@@ -53,6 +53,7 @@ class AnimalLocationService:
 
     def get_all_animal_locations(self, params=None):
         models = self.animal_location_repository.get_all_animal_locations(params)
+        print(models)
         return [AnimalLocationResponse.parse_obj(
             {
                 "id": model.id,
