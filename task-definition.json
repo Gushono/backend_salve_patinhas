@@ -26,7 +26,12 @@
       "dnsServers": null,
       "mountPoints": [],
       "workingDirectory": null,
-      "secrets": null,
+      "secrets": [
+        {
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:961040309672:secret:env_salve_patinhas-UdoFZQ",
+          "name": "env_salve_patinhas"
+        }
+      ],
       "dockerSecurityOptions": null,
       "memory": null,
       "memoryReservation": null,
