@@ -7,8 +7,8 @@ from sqlalchemy.orm import relationship
 Base = declarative_base()
 
 
-def now_plus_24_hours():
-    return datetime.utcnow() + timedelta(hours=24)
+def now_plus_3_hours():
+    return datetime.utcnow() + timedelta(hours=3)
 
 
 class User(Base):
@@ -38,7 +38,7 @@ class AnimalLocationModel(Base):
     description = Column(String)
     latitude = Column(String)
     longitude = Column(String)
-    expires_at = Column(DateTime, nullable=False, default=now_plus_24_hours)
+    expires_at = Column(DateTime, nullable=False, default=now_plus_3_hours())
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow)
 

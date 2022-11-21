@@ -11,10 +11,10 @@ async def create_animal_location(animal_location_dto: AnimalLocationDto):
     return JSONResponse(content=animal_location_response, status_code=201)
 
 
-async def get_all_animal_locations(last_24_hours: bool = None):
+async def get_all_animal_locations(has_not_expired: bool = True):
     animal_location_service = AnimalLocationService()
 
-    params = transform_to_params(last_24_hours=last_24_hours)
+    params = transform_to_params(has_not_expired=has_not_expired)
 
     animal_location_response = animal_location_service.get_all_animal_locations(params)
 
