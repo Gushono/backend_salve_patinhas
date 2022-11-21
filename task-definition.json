@@ -4,8 +4,21 @@
   "containerDefinitions": [
     {
       "dnsSearchDomains": null,
-      "environmentFiles": null,
-      "logConfiguration": null,
+      "environmentFiles": {
+        "value": "arn:aws:s3:::envmeu/.env",
+        "type": "s3"
+      },
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "/ecs/secret",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+
+
       "entryPoint": null,
       "portMappings": [
         {
@@ -23,12 +36,6 @@
       "dnsServers": null,
       "mountPoints": [],
       "workingDirectory": null,
-      "secrets": [
-        {
-          "valueFrom": "arn:aws:secretsmanager:us-east-1:961040309672:secret:env_salve_patinhas-UdoFZQ",
-          "name": "env_salve_patinhas"
-        }
-      ],
       "dockerSecurityOptions": null,
       "memory": null,
       "memoryReservation": null,
