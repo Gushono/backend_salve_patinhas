@@ -13,6 +13,8 @@ class BaseRepository:
         if commit:
             db.session.commit()
 
+        print(model)
+
         return model
 
     def get_all(self, params=None):
