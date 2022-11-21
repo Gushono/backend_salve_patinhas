@@ -4,10 +4,12 @@
   "containerDefinitions": [
     {
       "dnsSearchDomains": null,
-      "environmentFiles": {
-        "value": "arn:aws:s3:::envmeu/.env",
-        "type": "s3"
-      },
+      "environmentFiles": [
+        {
+          "value": "arn:aws:s3:::envmeu/.env",
+          "type": "s3"
+        }
+      ],
       "logConfiguration": {
         "logDriver": "awslogs",
         "secretOptions": null,
@@ -17,8 +19,6 @@
           "awslogs-stream-prefix": "ecs"
         }
       },
-
-
       "entryPoint": null,
       "portMappings": [
         {
