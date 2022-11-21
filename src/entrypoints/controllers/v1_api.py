@@ -17,6 +17,7 @@ async def get_all_animal_locations(has_not_expired: bool = True):
     params = transform_to_params(has_not_expired=has_not_expired)
 
     animal_location_response = animal_location_service.get_all_animal_locations(params)
+    print("a")
 
     return JSONResponse(content=animal_location_response, status_code=200)
 
