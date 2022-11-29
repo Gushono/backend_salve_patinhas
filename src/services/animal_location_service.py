@@ -27,6 +27,7 @@ class AnimalLocationService:
         self.picture_repository = picture_repository or PictureRepository()
 
     def create_animal_location(self, animal_location_schema: AnimalLocationDto) -> dict:
+        # self.picture_repository.upload_picture_to_s3(animal_location_schema.picture)
         s3_link = animal_location_schema.s3_link
         animal_location_schema.s3_link = None
 

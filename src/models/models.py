@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Date
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -16,9 +16,9 @@ class User(Base):
     __tablename__ = "tb_user"
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
-    celphone = Column(String)
+    phone = Column(String)
     email = Column(String)
-    document_number = Column(String)
+    document_number = Column(String, nullable=True)
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow)
 
@@ -51,7 +51,7 @@ class Animal(Base):
     picture = relationship("PictureModel")
     name = Column(String)
     specie = Column(String)
-    birth_date = Column(DateTime)
+    birth_date = Column(Date)
     description = Column(String)
     city = Column(String)
     address = Column(String)
