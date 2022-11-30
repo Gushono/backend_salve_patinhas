@@ -1,30 +1,51 @@
-from src.entrypoints.schemas.schema import AnimalAdoptionResponse, UserMinimalResponse, AnimalAdoptionDto, \
-    AnimalMinimalResponse
+from src.entrypoints.schemas.schema import (
+    AnimalAdoptionResponse,
+    UserMinimalResponse,
+    AnimalAdoptionDto,
+    AnimalMinimalResponse,
+)
 from src.models.models import UserAnimal
 from src.repositories.animal_adoption_repository import AnimalAdoptionRepository
 
 
 class AnimalAdoptionService:
     def __init__(self, animal_adoption_repository=None):
-        self.animal_adoption_repository = animal_adoption_repository or AnimalAdoptionRepository()
+        self.animal_adoption_repository = (
+            animal_adoption_repository or AnimalAdoptionRepository()
+        )
 
-    def create_animal_adoption(self, animal_adoption_schema: AnimalAdoptionDto) -> dict[str, AnimalAdoptionResponse]:
-        user_animal_model = self.animal_adoption_repository.create_animal_adoption_model(animal_adoption_schema)
+    def create_animal_adoption(
+        self, animal_adoption_schema: AnimalAdoptionDto
+    ) -> dict[str, AnimalAdoptionResponse]:
+        user_animal_model = (
+            self.animal_adoption_repository.create_animal_adoption_model(
+                animal_adoption_schema
+            )
+        )
+        print(user_animal_model)
 
         return self.parse_object_to_response(user_animal_model)
 
-    async def get_user_animals_for_adoption(self, user_id: int) -> list[dict[str, AnimalAdoptionResponse]]:
-        user_animals = self.animal_adoption_repository.get_user_animals_for_adoption(user_id)
+    async def get_user_animals_for_adoption(
+        self, user_id: int
+    ) -> list[dict[str, AnimalAdoptionResponse]]:
+        user_animals = self.animal_adoption_repository.get_user_animals_for_adoption(
+            user_id
+        )
 
         return [
-            self.parse_object_to_response(user_animal_model) for user_animal_model in user_animals
+            self.parse_object_to_response(user_animal_model)
+            for user_animal_model in user_animals
         ]
 
-    async def get_all_animals_for_adoption(self) -> list[dict[str, AnimalAdoptionResponse]]:
+    async def get_all_animals_for_adoption(
+        self,
+    ) -> list[dict[str, AnimalAdoptionResponse]]:
         user_animals = self.animal_adoption_repository.get_all_animals_for_adoption()
 
         return [
-            self.parse_object_to_response(user_animal_model) for user_animal_model in user_animals
+            self.parse_object_to_response(user_animal_model)
+            for user_animal_model in user_animals
         ]
 
     @staticmethod
@@ -32,11 +53,13 @@ class AnimalAdoptionService:
         return AnimalAdoptionResponse.parse_obj(
             {
                 "id": user_animal.id,
-                "animal": AnimalMinimalResponse.parse_obj(user_animal.animal.__dict__).dict(),
+                "animal": AnimalMinimalResponse.parse_obj(
+                    user_animal.animal.__dict__
+                ).dict(),
                 "contact": UserMinimalResponse(
                     id=user_animal.user.id,
                     name=user_animal.user.name,
-                    phone=user_animal.user.phone
+                    phone=user_animal.user.phone,
                 ).dict(),
                 "created_at": str(user_animal.created_at),
                 "updated_at": str(user_animal.updated_at),

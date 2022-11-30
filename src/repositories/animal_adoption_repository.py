@@ -7,12 +7,13 @@ class AnimalAdoptionRepository(BaseRepository):
     def __init__(self):
         super().__init__(UserAnimal)
 
-    def create_animal_adoption_model(self, animal_adoption_schema: AnimalAdoptionDto) -> UserAnimal:
+    def create_animal_adoption_model(
+        self, animal_adoption_schema: AnimalAdoptionDto
+    ) -> UserAnimal:
         animal_created = Animal(
             name=animal_adoption_schema.name,
             description=animal_adoption_schema.description,
             specie=animal_adoption_schema.species,
-            # birth_date=Daanimal_adoption_schema.birth_date,
         )
         animal = self.create(animal_created, commit=False)
 
@@ -34,7 +35,11 @@ class AnimalAdoptionRepository(BaseRepository):
         return user_animal
 
     def get_user_animals_for_adoption(self, user_id: int) -> list:
-        return self.db.session.query(UserAnimal).filter(UserAnimal.id_user == user_id).all()
+        return (
+            self.db.session.query(UserAnimal)
+            .filter(UserAnimal.id_user == user_id)
+            .all()
+        )
 
     def get_all_animals_for_adoption(self) -> list:
         return self.db.session.query(UserAnimal).all()
