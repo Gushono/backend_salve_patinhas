@@ -8,7 +8,7 @@ Base = declarative_base()
 
 
 def now_plus_3_hours():
-    generated_datetime = datetime.now() + timedelta(hours=3)
+    generated_datetime = datetime.utcnow() + timedelta(hours=3)
     return generated_datetime
 
 

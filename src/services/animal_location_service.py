@@ -16,6 +16,20 @@ class AnimalLocationResponse(BaseModel):
     created_at: str
     updated_at: str
 
+    class Config:
+        orm_mode = True
+        schema_extra = {
+            "example": {
+                "id": 1,
+                "latitude": "-23.5505",
+                "longitude": "-46.6333",
+                "s3_link": "https://s3.amazonaws.com/animal-adoption-pictures/animal-location/1.jpg",
+                "expires_at": "2021-01-01-03:00:00",
+                "created_at": "2021-01-01-00:00:00",
+                "updated_at": "2021-01-01-00:00:00"
+            }
+        }
+
 
 class AnimalLocationService:
     def __init__(
@@ -52,7 +66,7 @@ class AnimalLocationService:
             }
         ).dict()
 
-    def get_all_animal_locations(self, params=None):
+    def get_all_animal_locations(self, params=None) -> list[dict[str, AnimalLocationResponse]]:
         models = self.animal_location_repository.get_all_animal_locations(params)
         return [AnimalLocationResponse.parse_obj(
             {

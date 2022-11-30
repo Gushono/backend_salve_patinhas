@@ -3,15 +3,6 @@ from typing import Optional
 from pydantic import BaseModel
 
 
-class User(BaseModel):
-    first_name: str
-    last_name: str = None
-    age: int
-
-    class Config:
-        orm_mode = True
-
-
 class AnimalLocationDto(BaseModel):
     description: Optional[str]
     latitude: str
@@ -20,6 +11,14 @@ class AnimalLocationDto(BaseModel):
 
     class Config:
         orm_mode = True
+        schema_extra = {
+            "example": {
+                "description": "Is a beautiful dog",
+                "latitude": "-23.5505",
+                "longitude": "-46.6333",
+                "s3_link": "https://s3.amazonaws.com/animal-adoption-pictures/animal-location/1.jpg"
+            }
+        }
 
 
 class PictureDto(BaseModel):
@@ -48,11 +47,41 @@ class AnimalAdoptionResponse(BaseModel):
     created_at: str
     updated_at: str
 
+    class Config:
+        orm_mode = True
+        schema_extra = {
+            "example": {
+                "id": 1,
+                "animal": {
+                    "id": 1,
+                    "name": "Dog",
+                    "description": "Is a beautiful dog",
+                    "specie": "Dog",
+                    "birth_date": "2021-01-01"
+                },
+                "contact": {
+                    "id": 1,
+                    "name": "John Doe",
+                    "phone": "11999999999",
+                    "email": "john@gmail.com"
+                }
+            }
+        }
+
 
 class UserContact(BaseModel):
     name: str
     email: str
     phone: str
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "name": "John Doe",
+                "email": "john@gmail.com",
+                "phone": "11999999999"
+            }
+        }
 
 
 class AnimalAdoptionDto(BaseModel):
@@ -61,3 +90,19 @@ class AnimalAdoptionDto(BaseModel):
     birth_date: str
     description: str
     contact: UserContact
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "species": "dog",
+                "name": "Dog",
+                "birth_date": "2017-01-01",
+                "description": "Is a beautiful dog",
+                "contact": {
+                    "name": "John Doe",
+                    "email": "john@gmail.com",
+                    "phone": "11999999999"
+
+                }
+            }
+        }

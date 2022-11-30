@@ -6,4 +6,5 @@
 .python-version
 .DS_Store
 .env
+dev_env.env
 .venv
