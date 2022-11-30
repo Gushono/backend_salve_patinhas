@@ -5,11 +5,15 @@ Tcc using python and fastapi
 # Running the server on docker
 
 ```
-docker build . -t backend_salve_patinhas
-docker run -p 8081:8081 --name backend_salve_patinhas -d backend_salve_patinhas
-
+docker run --name postgresql -e POSTGRESQL_USERNAME=postgres -e ALLOW_EMPTY_PASSWORD=yes -p 5432:5432 bitnami/postgresql:latest
+docker-compose up
 ```
 
+# Running tests 
+    
+    ```
+    docker-run --name postgresql -e POSTGRESQL_USERNAME=postgres -e ALLOW_EMPTY_PASSWORD=yes -p 5432:5432 bitnami/postgresql:latest
+    ```
 # To contribute commiting...
 
 ## generate a venv
