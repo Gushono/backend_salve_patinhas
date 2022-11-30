@@ -9,7 +9,9 @@ from src.services.animal_location_service import AnimalLocationService
 async def create_animal_location(animal_location_dto: AnimalLocationDto):
     animal_location_service = AnimalLocationService()
 
-    animal_location_response = animal_location_service.create_animal_location(animal_location_dto)
+    animal_location_response = animal_location_service.create_animal_location(
+        animal_location_dto
+    )
     return JSONResponse(content=animal_location_response, status_code=201)
 
 
@@ -32,7 +34,7 @@ async def create_animal_for_adoption(animal_dto: AnimalAdoptionDto):
 
 async def get_user_animals_for_adoption(user_id: int):
     animal_service = AnimalAdoptionService()
-
+    print(user_id)
     animal_response = await animal_service.get_user_animals_for_adoption(user_id)
     return JSONResponse(content=animal_response, status_code=200)
 
