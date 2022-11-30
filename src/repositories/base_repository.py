@@ -8,7 +8,6 @@ class BaseRepository:
 
     @staticmethod
     def create(model, commit=True):
-
         db.session.add(model)
 
         if commit:
@@ -18,8 +17,5 @@ class BaseRepository:
 
         return model
 
-    def get_all(self, params=None):
-        if params:
-            return db.session.query(self.model).filter_by(**params).all()
-
+    def get_all(self):
         return db.session.query(self.model).all()

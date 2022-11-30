@@ -27,4 +27,4 @@ class AnimalLocationRepository(BaseRepository):
                 AnimalLocationModel.expires_at > datetime.now()
             ).all()
 
-        return self.get_all(params)
+        return self.get_all()
